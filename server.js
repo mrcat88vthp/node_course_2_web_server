@@ -8,6 +8,7 @@ import fs from 'fs';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const port = process.env.port || 3000;
 
 //handlebars
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
@@ -72,6 +73,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
